@@ -1,0 +1,4 @@
+---
+
+ceph_mirror_cron_disabled: true
+ceph_download_region: "us-east"
