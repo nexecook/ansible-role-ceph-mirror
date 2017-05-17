@@ -15,5 +15,5 @@
     hour="{{ ceph_mirror_cron_hour }}"
     user="{{ mirror_unix_user }}"
     state="present"
-    job="{{ mirror_cron_dir }}/ceph-mirror -q -s {{ ceph_download_region }} -t {{ mirror_doc_root }}/ceph"
+    job="{{ mirror_cron_dir }}/ceph-mirror -q -s {{ ceph_download_region }} -t {{ mirror_doc_root }}/ceph >/dev/null 2>&1"
     disabled="{{ ceph_mirror_cron_disabled }}"
