@@ -96,9 +96,9 @@ rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --exclude repodata/* \
                                          ${TARGET}
 
-cp -f {{ mirror_doc_root }}/ceph/timestamp > {{ mirror_timestamp_dir }}/ceph
-
 # Now also transfer the metadata and delete afterwards
 rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --hard-links --delete-after \
                                          ${TARGET}
+
+cp -f {{ mirror_doc_root }}/ceph/timestamp {{ mirror_timestamp_dir }}/ceph
