@@ -94,6 +94,7 @@ rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --exclude i18n/* \
                                          --exclude ls-lR* \
                                          --exclude repodata/* \
+                                         --timeout=10800    \
                                          ${TARGET}
 
 # Now also transfer the metadata and delete afterwards
