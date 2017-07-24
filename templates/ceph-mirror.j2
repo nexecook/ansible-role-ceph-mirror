@@ -97,6 +97,7 @@ rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --timeout=10800 \
                                          --exclude '*/db/lockfile' \
                                          --exclude '.*.rpm.*' \
+                                         --exclude '.*.deb.*' \
                                          ${TARGET}
 
 # Now also transfer the metadata and delete afterwards
@@ -105,6 +106,7 @@ rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --timeout=10800 \
                                          --exclude '*/db/lockfile' \
                                          --exclude '.*.rpm.*' \
+                                         --exclude '.*.deb.*' \
                                          ${TARGET}
 
 cp -f {{ mirror_doc_root }}/ceph/timestamp {{ mirror_timestamp_dir }}/ceph
