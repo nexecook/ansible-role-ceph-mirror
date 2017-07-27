@@ -85,7 +85,7 @@ fi
 #
 
 # Exclude all metadata files
-rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
+timeout 1d rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --hard-links \
                                          --exclude Packages* \
                                          --exclude Sources* \
@@ -100,7 +100,7 @@ rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          ${TARGET}
 
 # Now also transfer the metadata and delete afterwards
-rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
+timeout 1d rsync ${RSYNC_OPTS} ${SOURCE_HOST}::ceph --recursive --times --links \
                                          --hard-links --delete-after \
                                          --timeout=10800 \
                                          --exclude '*/db/lockfile' \
